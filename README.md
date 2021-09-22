@@ -1,0 +1,4 @@
+- 👋 Hi, I’m P9W3R480
+- 👀 I’m interested in DBM program
+- 🌱 I’m currently learning school
+- 📫 How to reach me discord: P9W3R480#6173
