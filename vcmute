@@ -1,0 +1,190 @@
+{
+  "name": "ga-vcmute",
+  "permissions": "ADMINISTRATOR",
+  "restriction": "1",
+  "_id": "MFAAF",
+  "actions": [
+    {
+      "storage": "0",
+      "varName": "",
+      "reason": "",
+      "name": "Delete Message"
+    },
+    {
+      "comment": "Zmien nazwe/id roli akcji #3",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "info": "1",
+      "find": "vcmute.all",
+      "storage": "1",
+      "varName": "muteperms",
+      "name": "Find Role"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "role": "3",
+      "varName2": "muteperms",
+      "iftrue": "2",
+      "iftrueVal": "7",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member has Role"
+    },
+    {
+      "channel": "1",
+      "varName": "",
+      "message": "${member}, Nie posiadasz permisji (\"vc.mute\")",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "2",
+      "iftrueVal": "10",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "1",
+      "varName": "",
+      "message": "${member}, Nie spingowałeś osoby która chcesz zmutować na vc",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "condition": "0",
+      "comparison": "2",
+      "value": "1",
+      "iftrue": "2",
+      "iftrueVal": "13",
+      "iffalse": "0",
+      "iffalseVal": "4",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "1",
+      "varName": "",
+      "message": "${member}, Nie podałeś powodu vc-mute",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "info": "4",
+      "varName2": "",
+      "iftrue": "2",
+      "iftrueVal": "16",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member"
+    },
+    {
+      "channel": "1",
+      "varName": "",
+      "message": "${member}, Użytkownik nie jest na kanale!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "1",
+      "infoIndex": "2",
+      "storage": "1",
+      "varName": "powodvcmute",
+      "name": "Store Command Params"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "nazwaadministratora",
+      "name": "Store Member Info"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "RED",
+      "timestamp": "false",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "wiadomoscdozmutowanego",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "wiadomoscdozmutowanego",
+      "message": "^ ^ ^ **Wyciszenie-Głosowe** ^ ^ ^ \n\nAdministrator: ${tempVars(\"nazwaadministratora\")}\n\nPowód: ${tempVars(\"powodvcmute\")}\n\n",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "wiadomoscdozmutowanego",
+      "channel": "2",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "GREEN",
+      "timestamp": "false",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "wiadomoscpotwierdzenia",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "wiadomoscpotwierdzenia",
+      "message": "^ ^ ^ **Wyciszenie-Głosowe** ^ ^ ^ \n\nAdministrator: ${tempVars(\"nazwaadministratora\")}\n\nWyciszony: ${mentionedUser}",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "wiadomoscpotwierdzenia",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "mute": "0",
+      "reason": "",
+      "name": "Set Member Mute"
+    }
+  ]
+}
